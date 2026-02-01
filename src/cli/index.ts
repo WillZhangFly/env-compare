@@ -10,7 +10,7 @@ import { printCompareResult, printJsonResult, generateExportContent } from './ou
 const program = new Command();
 
 program
-  .name('env-compare')
+  .name('envdiff')
   .description('Compare .env files and find missing or different variables')
   .version('1.0.0');
 

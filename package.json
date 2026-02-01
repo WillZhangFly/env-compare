@@ -1,12 +1,12 @@
 {
-  "name": "env-compare",
-  "version": "1.0.1",
+  "name": "envdiff",
+  "version": "0.0.1",
   "description": "Compare .env files and find missing or different variables instantly",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "env-compare": "./dist/cli/index.js"
+    "envdiff": "./dist/cli/index.js"
   },
   "files": [
     "dist",

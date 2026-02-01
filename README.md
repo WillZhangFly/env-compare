@@ -1,8 +1,8 @@
-# env-compare
+# envdiff
 
 > Compare .env files and find missing or different variables instantly
 
-[![npm version](https://img.shields.io/npm/v/env-compare.svg)](https://www.npmjs.com/package/env-compare)
+[![npm version](https://img.shields.io/npm/v/envdiff.svg)](https://www.npmjs.com/package/envdiff)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Problem
@@ -11,7 +11,7 @@ Dev works, staging fails. What env vars are different?
 
 ## Solution
 
-`env-compare` compares .env files and shows differences clearly — find that missing variable in seconds, not hours.
+`envdiff` compares .env files and shows differences clearly — find that missing variable in seconds, not hours.
 
 ## Features
 
@@ -26,13 +26,13 @@ Dev works, staging fails. What env vars are different?
 
 ```bash
 # Run directly with npx (recommended)
-npx env-compare .env.development .env.staging
+npx envdiff .env.development .env.staging
 
 # Or install globally
-npm install -g env-compare
+npm install -g envdiff
 
 # Or as dev dependency
-npm install --save-dev env-compare
+npm install --save-dev envdiff
 ```
 
 ## Usage
@@ -41,36 +41,36 @@ npm install --save-dev env-compare
 
 ```bash
 # Basic comparison
-npx env-compare .env.development .env.staging
+npx envdiff .env.development .env.staging
 
 # Show all values (including sensitive)
-npx env-compare .env.development .env.staging --show-values
+npx envdiff .env.development .env.staging --show-values
 
 # Show identical variables too
-npx env-compare .env.development .env.staging --show-identical
+npx envdiff .env.development .env.staging --show-identical
 
 # Output as JSON
-npx env-compare .env.development .env.staging --json
+npx envdiff .env.development .env.staging --json
 ```
 
 ### Export Missing Variables
 
 ```bash
 # Export variables missing from second file
-npx env-compare .env.development .env.staging --export missing.env
+npx envdiff .env.development .env.staging --export missing.env
 
 # Export from the other direction
-npx env-compare .env.staging .env.development --export missing.env
+npx envdiff .env.staging .env.development --export missing.env
 ```
 
 ### Validate Against Example
 
 ```bash
 # Check if .env has all variables from .env.example
-npx env-compare validate .env .env.example
+npx envdiff validate .env .env.example
 
 # Strict mode: fail if .env has extra variables
-npx env-compare validate .env .env.example --strict
+npx envdiff validate .env .env.example --strict
 ```
 
 ## Example Output
@@ -118,7 +118,7 @@ Found the bug in seconds? Consider supporting:
 ## Validation Example
 
 ```bash
-$ npx env-compare validate .env .env.example
+$ npx envdiff validate .env .env.example
 
 🔍 Environment Validation
 ──────────────────────────────────────────────────
@@ -137,7 +137,7 @@ $ npx env-compare validate .env .env.example
 ### Compare Command
 
 ```
-Usage: env-compare <file1> <file2> [options]
+Usage: envdiff <file1> <file2> [options]
 
 Arguments:
   file1                    First .env file
@@ -156,7 +156,7 @@ Options:
 ### Validate Command
 
 ```
-Usage: env-compare validate <env-file> <example-file> [options]
+Usage: envdiff validate <env-file> <example-file> [options]
 
 Arguments:
   env-file                 Your .env file
@@ -172,12 +172,12 @@ Options:
 ```yaml
 # GitHub Actions
 - name: Validate environment
-  run: npx env-compare validate .env .env.example
+  run: npx envdiff validate .env .env.example
 
 # Compare staging vs production config
 - name: Compare environments
   run: |
-    npx env-compare .env.staging .env.production --json > env-diff.json
+    npx envdiff .env.staging .env.production --json > env-diff.json
     if [ $? -ne 0 ]; then
       echo "Environment files differ!"
       cat env-diff.json
@@ -187,7 +187,7 @@ Options:
 ## Programmatic Usage
 
 ```typescript
-import { compareEnvFiles, areIdentical } from 'env-compare';
+import { compareEnvFiles, areIdentical } from 'envdiff';
 
 const result = compareEnvFiles('.env.development', '.env.staging');
 
@@ -201,7 +201,7 @@ if (areIdentical(result)) {
 
 ## Security
 
-By default, `env-compare` masks values for keys containing:
+By default, `envdiff` masks values for keys containing:
 - `secret`, `password`, `key`, `token`
 - `auth`, `credential`, `private`, `api_key`
 
@@ -211,7 +211,7 @@ Use `--show-values` to display all values.
 
 | Tool | .env Aware | Visual Diff | Export | Validate | npm Native |
 |------|------------|-------------|--------|----------|------------|
-| **env-compare** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **envdiff** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `diff` command | ❌ | ⚠️ | ❌ | ❌ | N/A |
 | dotenv-safe | ❌ | ❌ | ❌ | ✅ | ✅ |
 | envalid | ❌ | ❌ | ❌ | ✅ | ✅ |
