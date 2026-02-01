@@ -1,0 +1,60 @@
+{
+  "name": "env-compare",
+  "version": "1.0.0",
+  "description": "Compare .env files and find missing or different variables instantly",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "env-compare": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli/index.ts",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "env",
+    "environment",
+    "dotenv",
+    "compare",
+    "diff",
+    "variables",
+    "config",
+    "debugging",
+    "devops",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willzhangfly/env-compare.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willzhangfly/env-compare/issues"
+  },
+  "homepage": "https://github.com/willzhangfly/env-compare#readme",
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://buymeacoffee.com/willzhangfly"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0"
+  }
+}
