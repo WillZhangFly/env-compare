@@ -1,6 +1,6 @@
 {
   "name": "env-compare",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compare .env files and find missing or different variables instantly",
   "type": "module",
   "main": "./dist/index.js",
